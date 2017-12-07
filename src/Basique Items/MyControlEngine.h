@@ -1,12 +1,13 @@
 #pragma once
 #include "Engine.h"
-#include "Papillon.h"
-
+#include "Vaisseaux_VS_Asteroides.h"
+#include "Helper.h"
 
 class MyControlEngine:public ControlEngine {
-    std::vector<Papillon * > *paps;
+    Vaisseaux_VS_Asteroides &game;
+    
 public:
-    MyControlEngine(std::vector<Papillon * > * paps_):paps(paps_){}
+    MyControlEngine(Vaisseaux_VS_Asteroides &v_):game(v_){};
    
     virtual void MouseCallback(int button, int state, int x, int y) ;
 };
