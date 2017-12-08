@@ -21,8 +21,9 @@ Vaisseaux_VS_Asteroides::~Vaisseaux_VS_Asteroides(){
 
 // Game Logic
 void Vaisseaux_VS_Asteroides::draw(){
-    std::cout << "Draw game" << std::endl;
+    
 }
+
 void Vaisseaux_VS_Asteroides::tick(){
-    std::cout << "Tick game" << std::endl;
+    
 }

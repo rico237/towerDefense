@@ -7,21 +7,19 @@
 //
 
 #pragma once
-#include <string.h>
 #include "GraphicPrimitives.h"
 #include "Helper.h"
+#include "Colors.h"
 
 class Joueur {
     
 private:
-    char *vieStr, *argentStr, *scoreStr;
     int vie, argent, score;
-    float positionX = 0.0f;
+    float choixVaisseau = 0.0f;
     
 public:
     // Constructeur & Destructor
     Joueur(int vie_, int argent_);
-    ~Joueur();
     
     // Methods
     void draw();

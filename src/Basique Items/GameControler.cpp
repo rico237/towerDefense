@@ -13,7 +13,6 @@ GameControler::GameControler(Engine *e_): e(e_){}
 
 void GameControler::startAll(){
     
-    std::vector<Papillon *> paps;
     Vaisseaux_VS_Asteroides game;
     
     MyGraphicEngine ge(game);

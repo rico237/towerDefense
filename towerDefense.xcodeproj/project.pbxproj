@@ -52,7 +52,9 @@
 		1FD86FC71FD992A70073D700 /* Vaisseaux_VS_Asteroides.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vaisseaux_VS_Asteroides.cpp; sourceTree = "<group>"; };
 		1FD86FC81FD992A70073D700 /* Vaisseaux_VS_Asteroides.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vaisseaux_VS_Asteroides.h; sourceTree = "<group>"; };
 		1FD86FCE1FD995A40073D700 /* Vaisseau.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vaisseau.cpp; sourceTree = "<group>"; };
-		1FD86FCF1FD995A40073D700 /* Vaisseau.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vaisseau.hpp; sourceTree = "<group>"; };
+		1FD86FCF1FD995A40073D700 /* Vaisseau.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vaisseau.h; sourceTree = "<group>"; };
+		1FD86FD21FD9EB8A0073D700 /* GraphicShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicShape.h; sourceTree = "<group>"; };
+		1FD86FD51FDA059B0073D700 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		1FE988A51FD6D8DB00954EB1 /* ControlEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlEngine.h; sourceTree = "<group>"; };
 		1FE988A61FD6D8DB00954EB1 /* Engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		1FE988A71FD6D8DB00954EB1 /* GameEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
@@ -92,6 +94,11 @@
 		1FD86FC01FD8651F0073D700 /* Basique Items */ = {
 			isa = PBXGroup;
 			children = (
+				1FD86FD51FDA059B0073D700 /* Colors.h */,
+				1FD86FC41FD88DD90073D700 /* Helper.cpp */,
+				1FD86FC51FD88DD90073D700 /* Helper.h */,
+				1FD86FBA1FD844560073D700 /* GameControler.cpp */,
+				1FD86FBB1FD844560073D700 /* GameControler.h */,
 				2EFFA0F91F89199500D3BA04 /* MyControlEngine.cpp */,
 				2EFFA0FA1F89199500D3BA04 /* MyControlEngine.h */,
 				2EFFA0FB1F89199500D3BA04 /* MyGameEngine.cpp */,
@@ -100,6 +107,15 @@
 				2EFFA0FE1F89199500D3BA04 /* MyGraphicEngine.h */,
 			);
 			path = "Basique Items";
+			sourceTree = "<group>";
+		};
+		1FD86FD41FD9EFC10073D700 /* Done */ = {
+			isa = PBXGroup;
+			children = (
+				1FD86FC11FD8843B0073D700 /* Joueur.cpp */,
+				1FD86FC21FD8843B0073D700 /* Joueur.h */,
+			);
+			path = Done;
 			sourceTree = "<group>";
 		};
 		1FE988A41FD6D8DB00954EB1 /* lib */ = {
@@ -155,23 +171,19 @@
 		2EFFA0F71F89199500D3BA04 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1FD86FD21FD9EB8A0073D700 /* GraphicShape.h */,
 				1FD86FCE1FD995A40073D700 /* Vaisseau.cpp */,
-				1FD86FCF1FD995A40073D700 /* Vaisseau.hpp */,
+				1FD86FCF1FD995A40073D700 /* Vaisseau.h */,
 				2EFFA0F81F89199500D3BA04 /* main.cpp */,
 				1FD86FC71FD992A70073D700 /* Vaisseaux_VS_Asteroides.cpp */,
 				1FD86FC81FD992A70073D700 /* Vaisseaux_VS_Asteroides.h */,
-				1FD86FC41FD88DD90073D700 /* Helper.cpp */,
-				1FD86FC51FD88DD90073D700 /* Helper.h */,
-				1FD86FC11FD8843B0073D700 /* Joueur.cpp */,
-				1FD86FC21FD8843B0073D700 /* Joueur.h */,
 				1FD86FB71FD6E38C0073D700 /* Polygone.cpp */,
 				1FD86FB81FD6E38C0073D700 /* Polygone.h */,
 				1FD86FBD1FD845730073D700 /* Case.cpp */,
 				1FD86FBE1FD845730073D700 /* Case.h */,
-				1FD86FBA1FD844560073D700 /* GameControler.cpp */,
-				1FD86FBB1FD844560073D700 /* GameControler.h */,
 				1FD86FB41FD6E2650073D700 /* Asteroide.cpp */,
 				1FD86FB51FD6E2650073D700 /* Asteroide.h */,
+				1FD86FD41FD9EFC10073D700 /* Done */,
 				1FD86FC01FD8651F0073D700 /* Basique Items */,
 			);
 			path = src;
