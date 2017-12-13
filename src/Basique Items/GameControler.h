@@ -11,13 +11,12 @@
 #include "MyGameEngine.h"
 #include "MyControlEngine.h"
 
-#include "Case.h"
-
 class GameControler {
     Engine *e;
     
 public:
     GameControler(Engine *e_);
+    ~GameControler(){delete e;};
     
     void startAll();
 };

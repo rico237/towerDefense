@@ -6,6 +6,7 @@
 //  Copyright © 2017 Herrick Wolber. All rights reserved.
 //
 
+#pragma once
 class Colors {
 public:
     // Couleurs des vaisseaux par type

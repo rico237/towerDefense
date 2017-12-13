@@ -8,39 +8,93 @@
 
 #include "Asteroide.h"
 
-//Asteroide::Asteroide(): Polygone(9,9,30,30){
-//    type = FEU;
-//    
-//}
-
-Asteroide::Asteroide(int vie_, float puissance_, float vitesse_, float x, float y, int cote = 4, bool canRotate_ = true, TypeAsteroide type_ = FEU): Polygone(10,10,4,30, 0,0,0), type(type_), canRotate(canRotate_), vie(vie_), vitesse(vitesse_), puissance(puissance_){
+Asteroide::Asteroide( float x, float y, TypeAsteroide type_):GraphicShape(x, y), type(type_){
     switch (type_) {
-        case FEU:
-            setRGB(1, 0, 0);
+        case BasiqueAsteroide:
+            setRGB(Colors::getAsteroidRed(), Colors::getAsteroidGreen(), Colors::getAsteroidBlue());
+            frequence = 1; vitesse = .003f; vie = 100; size = 1;
             break;
-        case EAU:
-            setRGB(0, 0, 1);
-            puissance *= 0.2;
-            vie += 20;
+        case FastAsteroid:
+            setRGB(Colors::getFastAsteroidRed(), Colors::getFastAsteroidGreen(), Colors::getFastAsteroidBlue());
+            frequence = 2; vitesse = .01f; vie = 200; size = 1.5;
             break;
-        case GLACE:
-            setRGB(27, 176, 244);
-            puissance *= 0.4;
-            vie += 40;
+        case TankAsteroid:
+            setRGB(Colors::getTankyAsteroidRed(), Colors::getTankyAsteroidGreen(), Colors::getTankyAsteroidBlue());
+            frequence = 2; vitesse = .004f; vie = 600; size = 2;
             break;
     }
 }
 
 void Asteroide::draw(){
-    // Virtual method
-//    Polygone::draw();
-    std::cout << "Asteroide" << std::endl;
-//    GraphicPrimitives::drawFillPolygone2D(x, y, 1, 1, 1);
+    // TODO : essayer de dessiner un losange
+    GraphicPrimitives::drawFillRect2D(getX(), getY(), size * .04f, size * .06f, getR(), getG(), getB());
 }
 
 void Asteroide::tick(){
-    // Virtual Method
-    deplacement(vitesse, 0);
+    int cadense = 1000000;
+    struct timeval temp1, temp2; // Cheque si aucune répercution sur le temps
+    gettimeofday(&temp2, NULL);
+    time2 = temp2.tv_sec * cadense + temp2.tv_usec;
+    
+    
+    if((time2 - time1) > (frequence * cadense)){
+        
+        gettimeofday(&temp1, NULL);
+        time1 = temp1.tv_sec * cadense + temp1.tv_usec;
+    }
+    
+    setX(getX() - vitesse);
+    
+    if (vie <= 0){
+        this->~Asteroide();
+    }
 }
 
-Asteroide::~Asteroide(){}
+bool Asteroide::hittenWith(int power, TypeVaisseau typeV){
+    // Le ralentisseur diminue la vitesse
+    if (typeV == Ralentisseur) {
+        vitesse *= 0.7f;
+    }
+    else {
+        switch (type) {
+            case BasiqueAsteroide:
+                size *= 0.7f;
+                setY(getY()+.01f);
+                break;
+            case FastAsteroid:
+                size *= 0.8f;
+                setY(getY()+.006f);
+                break;
+            case TankAsteroid:
+                size *= 0.9f;
+                setY(getY()+.003f);
+                break;
+        }
+        looseLife(power);
+    }
+    
+    return isAlive();
+}
+
+void Asteroide::gainAssocie(Joueur *joueur){
+    int money, score;
+    switch (type) {
+        case BasiqueAsteroide:
+            money = 50;
+            score = 100;
+            break;
+        case FastAsteroid:
+            money = 75;
+            score = 200;
+            break;
+        case TankAsteroid:
+            money = 100;
+            score = 300;
+            break;
+    }
+    
+    joueur->setMoney(money);
+    joueur->setScore(score);
+}
+
+

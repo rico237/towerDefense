@@ -15,18 +15,21 @@ Vaisseau::Vaisseau(float x_, float y_, TypeVaisseau type_):GraphicShape(x_ + .05
             attackSpeed = 1.f;
             projectileSpeed = .01f;
             puissance = 50;
+            prix = 100;
             break;
         case Tank:
             setRGB(Colors::getTankyRed(), Colors::getTankyGreen(), Colors::getTankyBlue());
             attackSpeed = 4.f;
             projectileSpeed = .004f;
             puissance = 150;
+            prix = 750;
             break;
         case Ralentisseur:
             setRGB(Colors::getSlowingRed(), Colors::getSlowingGreen(), Colors::getSlowingBlue());
             attackSpeed = 1.5f;
             projectileSpeed = .02f;
             puissance = 0;
+            prix = 300;
             break;
     }
 }
@@ -60,6 +63,7 @@ void Vaisseau::tick(){
         time1 = temp1.tv_sec * cadense + temp1.tv_usec;
     }
     
+    // ESSAYER D'INTEGRER DANS LA CONDITION AU DESSUS
     // Déplacement des projectiles
     for (std::vector<float>::iterator projX = projectiles.begin(); projX != projectiles.end(); projX++) {
         *projX += projectileSpeed;

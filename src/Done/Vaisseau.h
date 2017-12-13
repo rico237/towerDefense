@@ -12,6 +12,7 @@
 #include "GraphicShape.h"
 #include "GraphicPrimitives.h"
 #include "Colors.h"
+#include "Helper.h"
 
 enum TypeVaisseau {
     Basique,
@@ -28,13 +29,13 @@ class Vaisseau: public GraphicShape {
     long int time2;
     
     float attackSpeed, projectileSpeed;
-    int puissance;
+    int puissance, prix;
     int life = 1;
     TypeVaisseau type;
     
 public:
     Vaisseau(float x_, float y_, TypeVaisseau type_);
-    ~Vaisseau(){};
+    ~Vaisseau(){Helper::print((char*)"Destruction vaisseau");};
     
     // Methods
     void draw();
@@ -45,4 +46,5 @@ public:
 //    inline float getSize(){return size;};
     inline float getLife(){return  life;};
     inline TypeVaisseau getType(){return type;};
+    inline int getPrice(){return prix;};
 };
