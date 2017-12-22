@@ -9,6 +9,8 @@
 #pragma once
 #include <iostream>
 #include <algorithm>
+#include <math.h>
+#include <list>
 #include <ctime>
 #include "Vaisseau.h"
 #include "Joueur.h"
@@ -27,12 +29,24 @@ class Vaisseaux_VS_Asteroides {
     GameState currentState;
     int currentWave;
     int nextWaveObjectif;
-    std::vector<Asteroide> asteroides;
+    
+    std::list<Asteroide> asteroides;
+    
     Plateau* damier;
     Joueur* player;
     float vitesse_attaqu;
     long time1 = time(0);
     long time2;
+    
+    void drawAllElements();
+    void drawInitialMenu();
+    void drawPauseMenu();
+    void drawGameOverPanel();
+    void generateAsteroide();
+//    void animateProjectilesAndShips();
+    void asteroidHitPlayer();
+    void colisionAsteroProjectile();
+    void asteroidHitShip();
     
 public:
     // Constructor & Destructor
@@ -41,10 +55,14 @@ public:
     
     // Getters & Setters
     inline GameState getCurrentState(){return currentState;};
+    inline void setCurrentState(GameState cu){currentState = cu;};
+    inline Joueur* getPlayer(){return player;};
     
     // Game Logic
     void draw();
     void tick();
-    void drawAllElements();
+    void restartGame();
+    void saveGame();
+    void loadGame();
     void addVessel(float x, float y); // Ajout de vaisseaux sur le damier
 };

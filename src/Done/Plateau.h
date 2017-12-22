@@ -15,11 +15,11 @@
 class Plateau : public GraphicShape {
     float size;
     int lines, columns;
-    Vaisseau **vaisseaux;
+    Vaisseau ** vaisseaux;
     
 public:
     // Constructor & Destructors
-    Plateau(float size_ = .2f);
+    Plateau(float size_ = 0.2f);
     ~Plateau();
     
     // Methods
@@ -31,7 +31,7 @@ public:
     inline float getSize(){return size;};
     inline int getLines(){return lines;};
     inline int getColumns(){return columns;};
-    inline Vaisseau** getVaisseaux(){return vaisseaux;};
+    inline Vaisseau ** getVaisseaux(){return vaisseaux;};
     inline void setSize(float siz){size = siz;};
     inline void setLines(int lin){lines = lin;};
     inline void setColumns(int col){columns = col;};

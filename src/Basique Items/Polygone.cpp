@@ -9,10 +9,6 @@
 #include "Polygone.h"
 #include <math.h>
 
-Polygone::Polygone(){
-    Polygone::Polygone(10,10,4,10, 1, 0, 0);
-}
-
 Polygone::Polygone(float x_, float y_, int cote, float taille_, float r_, float g_, float b_):centerX(x_), centerY(y_),taille(taille_), r(r_), g(g_), b(b_){
     
     float tempX, tempY;

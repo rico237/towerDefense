@@ -10,13 +10,14 @@
 class Colors {
 public:
     // Couleurs des vaisseaux par type
-    static inline float getBasiqueRed(){return .3f;};
-    static inline float getBasiqueGreen(){return 0.f;};
-    static inline float getBasiqueBlue(){return 0.f;};
     
-    static inline float getSlowingRed(){return 1.f;};
-    static inline float getSlowingGreen(){return .5f;};
-    static inline float getSlowingBlue(){return .3f;};
+    static inline float getBasiqueRed(){return .87f;};
+    static inline float getBasiqueGreen(){return 0.32f;};
+    static inline float getBasiqueBlue(){return 0.32f;};
+    
+    static inline float getSlowingRed(){return .11f;};
+    static inline float getSlowingGreen(){return .69f;};
+    static inline float getSlowingBlue(){return .96f;};
     
     static inline float getTankyRed(){return .1f;};
     static inline float getTankyGreen(){return 1.f;};
@@ -29,8 +30,8 @@ public:
     
     // Couleurs des asteroides
     static inline float getAsteroidRed(){return .3f;};
-    static inline float getAsteroidGreen(){return 0.f;};
-    static inline float getAsteroidBlue(){return 0.f;};
+    static inline float getAsteroidGreen(){return 0.3f;};
+    static inline float getAsteroidBlue(){return 0.1f;};
     
     static inline float getFastAsteroidRed(){return 1.f;};
     static inline float getFastAsteroidGreen(){return .5f;};

@@ -6,7 +6,7 @@
 
 int main(int argc, char * argv[])
 {
-    Engine e(argc,argv, 1200, 700, (char *)"Tower Defense");
+    Engine e(argc,argv);
     GameControler game(&e);
     game.startAll();
     return 0;

@@ -1,5 +1,7 @@
 #include "MyGameEngine.h"
 
 void MyGameEngine::idle(){
-    game.tick();
+    if (game.getCurrentState() == Playing && game.getPlayer()->getVie() > 0){
+        game.tick();
+    }
 }

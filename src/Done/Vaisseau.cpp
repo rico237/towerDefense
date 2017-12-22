@@ -34,16 +34,28 @@ Vaisseau::Vaisseau(float x_, float y_, TypeVaisseau type_):GraphicShape(x_ + .05
     }
 }
 
+int Vaisseau::getVesselPrice(float choice){
+    if (choice <= 0.1f) {
+        if (choice >= -0.22f) {
+            return 100;
+        }
+        return 300;
+    }
+    else {
+        return 750;
+    }
+}
+
 void Vaisseau::draw(){
     // Dessin Vaisseau
     GraphicPrimitives::drawFillTriangle2D(getX(), getY() + size/2, getX()+size, getY(), getX(), getY() - size/2, getR() , getG(), getB());
     
     // Dessin Projectiles
-    for (std::vector<float>::iterator projX = projectiles.begin(); projX != projectiles.end(); projX++) {
+    for (std::list<float>::iterator projX = projectiles.begin(); projX != projectiles.end(); projX++) {
         // On donne une plus grosse valeur au tank
         if (type == Tank) {
             // Ajouter une plus grande taille ??
-            GraphicPrimitives::drawFillRect2D(*projX, getY(), .02f, .02f, getR(), getG(), getB());
+            GraphicPrimitives::drawFillRect2D(*projX, getY() - .02f, .04f, .04f, getR(), getG(), getB());
         } else {
             GraphicPrimitives::drawFillRect2D(*projX, getY(), .02f, .02f, getR(), getG(), getB());
         }
@@ -51,21 +63,22 @@ void Vaisseau::draw(){
 }
 
 void Vaisseau::tick(){
-    int cadense = 1000000;
+    long cadense = 1000000;
     struct timeval temp1, temp2; // Cheque si aucune répercution sur le temps
     gettimeofday(&temp2, NULL);
     time2 = temp2.tv_sec * cadense + temp2.tv_usec;
     
     // Tir automatique en fonction de la vitesse d'attaque
     if((time2 - time1) > (attackSpeed * cadense)){
-        projectiles.push_back(getX() + size);
+        projectiles.push_front(getX() + size);
+        
         gettimeofday(&temp1, NULL);
         time1 = temp1.tv_sec * cadense + temp1.tv_usec;
     }
     
     // ESSAYER D'INTEGRER DANS LA CONDITION AU DESSUS
     // Déplacement des projectiles
-    for (std::vector<float>::iterator projX = projectiles.begin(); projX != projectiles.end(); projX++) {
+    for (std::list<float>::iterator projX = projectiles.begin(); projX != projectiles.end(); projX++) {
         *projX += projectileSpeed;
     }
     
@@ -73,4 +86,5 @@ void Vaisseau::tick(){
     if (projectiles.back() > 1.f) {
         projectiles.pop_back();
     }
+    
 }

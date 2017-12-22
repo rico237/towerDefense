@@ -31,21 +31,20 @@ void Asteroide::draw(){
 }
 
 void Asteroide::tick(){
-    int cadense = 1000000;
-    struct timeval temp1, temp2; // Cheque si aucune répercution sur le temps
-    gettimeofday(&temp2, NULL);
-    time2 = temp2.tv_sec * cadense + temp2.tv_usec;
+//    long cadense = 1000000;
+//    struct timeval temp1, temp2; // Cheque si aucune répercution sur le temps
+//    gettimeofday(&temp2, NULL);
+//    time2 = temp2.tv_sec * cadense + temp2.tv_usec;
+//
+//    if((time2 - time1) > (frequence * cadense)){
+//        gettimeofday(&temp1, NULL);
+//        time1 = temp1.tv_sec * cadense + temp1.tv_usec;
+//    }
     
-    
-    if((time2 - time1) > (frequence * cadense)){
-        
-        gettimeofday(&temp1, NULL);
-        time1 = temp1.tv_sec * cadense + temp1.tv_usec;
-    }
-    
-    setX(getX() - vitesse);
-    
-    if (vie <= 0){
+    setPosX(vitesse);
+//    std::cout << "Asteroide life " << getLife() <<std::endl;
+    if (isDead()){
+        Helper::print("Is dead form asteroide");
         this->~Asteroide();
     }
 }
@@ -73,7 +72,7 @@ bool Asteroide::hittenWith(int power, TypeVaisseau typeV){
         looseLife(power);
     }
     
-    return isAlive();
+    return isDead();
 }
 
 void Asteroide::gainAssocie(Joueur *joueur){

@@ -15,7 +15,7 @@ class Joueur {
     
 private:
     int vie, argent, score;
-    float choixVaisseau = 0.0f;
+    float choixVaisseau = -.3f;
     
 public:
     // Constructeur & Destructor
@@ -29,7 +29,7 @@ public:
     inline int getArgent(){return argent;};
     inline int getScore(){return score;};
     inline float getChoixVaisseau(){return choixVaisseau;};
-    inline void setChoixVaisseau(float choix){choixVaisseau+= choix;};
+    inline void setChoixVaisseau(float choix){choixVaisseau = choix;};
     inline void setLife(int life){vie += life;};
     inline void setMoney(int money){argent += money;};
     inline void setScore(int score_){score += score_;};

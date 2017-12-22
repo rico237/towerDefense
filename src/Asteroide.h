@@ -31,10 +31,12 @@ class Asteroide: public GraphicShape {
 public:
     // Constructeur et Destructeur
     Asteroide( float x, float y, TypeAsteroide type_);
-    ~Asteroide(){Helper::print((char*)"Destruction Asteroide");};
+    ~Asteroide(){
+        Helper::print((char*)"Destruction Asteroide");
+    };
     
     inline void looseLife(int lifeToLoose){vie -= lifeToLoose;};    // Fonction executée à la colision avec un missile ou un vaisseau
-    inline bool isAlive(){return vie > 0;};                         // Vraie, si supérieur à 0
+    inline bool isDead(){return vie <= 0;};                         // Vraie, si supérieur à 0
     void draw();                                                    // Fonction de dessin grâce aux librairies graphique
     void tick();                                                    // Changement des propriétés de l'asteroide à chaque tick
     bool hittenWith(int power, TypeVaisseau type);
@@ -44,8 +46,6 @@ public:
     inline int getLife(){return vie;};
     inline float getVitesse(){return vitesse;};
     inline TypeAsteroide getType(){return type;};
-//    inline float getAsteroideX(){return this->getX();};
-//    inline float getAsteroideY(){return this->getY();};
     inline float getTaille(){return size;};
-    
+    inline void setPosX (float x){setX(getX()-x);};
 };

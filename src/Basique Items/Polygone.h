@@ -19,7 +19,6 @@ protected:
     
 public:
     // Constructor & Destructors
-    Polygone();
     Polygone(float x_, float y_, int cote, float taille_, float r, float g, float b);
     
     // Methods

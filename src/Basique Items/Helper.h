@@ -18,4 +18,8 @@ public:
     static void print(char *str){
         std::cout << str << std::endl;
     };
+    
+    static void printWithVar(char *str, int val){
+        std::cout << str << val << std::endl;
+    };
 };

@@ -21,13 +21,14 @@ void Joueur::draw(){
     GraphicPrimitives::drawFillTriangle2D(-.45f, .9f, -.35f, .85f, -.45f, .8f, Colors::getBasiqueRed(), Colors::getBasiqueGreen(), Colors::getBasiqueBlue());
     GraphicPrimitives::drawText2D((char *)"100$", -.45f, .63f, Colors::getBasiqueRed(), Colors::getBasiqueGreen(), Colors::getBasiqueBlue());
     
+    
     GraphicPrimitives::drawText2D((char *)"Ralentisseur", -.15f, .7f, Colors::getSlowingRed(), Colors::getSlowingGreen(), Colors::getSlowingBlue());
     GraphicPrimitives::drawFillTriangle2D(-.15f, .9f, -.05f, .85f, -.15f, .8f, Colors::getSlowingRed(), Colors::getSlowingGreen(), Colors::getSlowingBlue());
-    GraphicPrimitives::drawText2D((char*)"200$", -.1f, .63f, Colors::getSlowingRed(), Colors::getSlowingGreen(), Colors::getSlowingBlue());
+    GraphicPrimitives::drawText2D((char*)"300$", -.1f, .63f, Colors::getSlowingRed(), Colors::getSlowingGreen(), Colors::getSlowingBlue());
     
     GraphicPrimitives::drawText2D((char*)"Tank",.15f , .7f, Colors::getTankyRed(), Colors::getTankyGreen(), Colors::getTankyBlue());
     GraphicPrimitives::drawFillTriangle2D(.25f, .9f, .35f, .85f, .25f, .8f, Colors::getTankyRed(), Colors::getTankyGreen(), Colors::getTankyBlue());
-    GraphicPrimitives::drawText2D((char*)"500$", .25f, .63f, Colors::getTankyRed(), Colors::getTankyGreen(), Colors::getTankyBlue());
+    GraphicPrimitives::drawText2D((char*)"750$", .25f, .63f, Colors::getTankyRed(), Colors::getTankyGreen(), Colors::getTankyBlue());
     
     // Rectangle montrant la position de vaisseau choisi
     GraphicPrimitives::drawFillRect2D(choixVaisseau, .95f, .05f, .05f, Colors::getSelectionRed(), Colors::getSelectionGreen(), Colors::getSelectionBlue());
